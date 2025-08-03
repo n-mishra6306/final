@@ -62,6 +62,11 @@ a {
     color: var(--primary-color);
 }
 
+button a {
+  color: white !important;
+}
+
+
 /* From Uiverse.io by satyamchaudharydev */ 
 button {
   position: relative;
