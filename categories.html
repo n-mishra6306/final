@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Categories | InterCareer Portal</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>/* Career Categories Specific Styles */
+.career-categories {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.categories-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.categories-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.categories-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+.search-box button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: #ff5252;
+}
+
+.categories-main {
+    padding: 3rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #2a5298;
+}
+
+.filter-options select {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.category-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    background: #2a5298;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    color: #2a5298;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stats i {
+    margin-right: 0.5rem;
+    color: #2a5298;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #2a5298;
+    color: white;
+    border: 1px solid #2a5298;
+}
+
+.btn-primary:hover {
+    background: #1e3c72;
+    border-color: #1e3c72;
+}
+
+.btn-secondary {
+    background: white;
+    color: #2a5298;
+    border: 1px solid #2a5298;
+}
+
+.btn-secondary:hover {
+    background: #f8f9fa;
+}
+
+.career-pathways {
+    text-align: center;
+    padding: 3rem 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 3rem 0;
+}
+
+.career-pathways h2 {
+    color: #2a5298;
+    margin-bottom: 1rem;
+}
+
+.trending-careers {
+    background: #f1f5f9;
+    padding: 3rem 0;
+}
+
+.trending-careers h2 {
+    text-align: center;
+    color: #2a5298;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-options {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .filter-options select {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}</style>
+</head>
+<body>
+    <!-- Header consistent with your portal -->
+    <header class="portal-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/intercareer-logo.png" alt="InterCareer Portal Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html" class="active">Career Paths</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="mentorship.html">Mentorship</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="career-categories">
+        <section class="categories-hero">
+            <div class="hero-content">
+                <h1>Explore Career Paths</h1>
+                <p>Discover various career fields and find the perfect path that matches your skills and interests</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search career categories...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-main">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Career Categories</h2>
+                    <div class="filter-options">
+                        <select id="industry-filter">
+                            <option value="all">All Industries</option>
+                            <option value="technology">Technology</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="business">Business</option>
+                            <option value="creative">Creative Arts</option>
+                        </select>
+                        <select id="experience-filter">
+                            <option value="all">All Experience Levels</option>
+                            <option value="entry">Entry Level</option>
+                            <option value="mid">Mid Career</option>
+                            <option value="senior">Senior Level</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Technology Careers -->
+                    <div class="category-card" data-industry="technology">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Technology & IT</h3>
+                            <p>Software development, cybersecurity, data science, and more in the tech industry.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-briefcase"></i> 1,240+ Opportunities</span>
+                                <span><i class="fas fa-graduation-cap"></i> 350+ Resources</span>
+                            </div>
+                            <a href="technology-careers.html" class="btn btn-primary">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Careers -->
+                    <div class="category-card" data-industry="healthcare">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Healthcare</h3>
+                            <p>Medical, nursing, pharmaceuticals, and healthcare administration careers.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-briefcase"></i> 890+ Opportunities</span>
+                                <span><i class="fas fa-graduation-cap"></i> 280+ Resources</span>
+                            </div>
+                            <a href="healthcare-careers.html" class="btn btn-primary">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Business Careers -->
+                    <div class="category-card" data-industry="business">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Business & Finance</h3>
+                            <p>Management, accounting, marketing, and financial services careers.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-briefcase"></i> 1,150+ Opportunities</span>
+                                <span><i class="fas fa-graduation-cap"></i> 420+ Resources</span>
+                            </div>
+                            <a href="business-careers.html" class="btn btn-primary">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Add more career categories as needed -->
+                </div>
+
+                <div class="career-pathways">
+                    <h2>Not Sure Where to Start?</h2>
+                    <p>Take our career assessment to discover paths that match your skills and interests</p>
+                    <a href="assessment.html" class="btn btn-secondary">Take Career Assessment</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="trending-careers">
+            <div class="container">
+                <h2>Trending Career Paths This Month</h2>
+                <div class="trending-grid">
+                    <!-- Trending career items would go here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="portal-footer">
+        <!-- Consistent with your portal footer -->
+    </footer>
+
+    <script>document.addEventListener('DOMContentLoaded', function() {
+    // Category filtering functionality
+    const industryFilter = document.getElementById('industry-filter');
+    const experienceFilter = document.getElementById('experience-filter');
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    function filterCategories() {
+        const industryValue = industryFilter.value;
+        const experienceValue = experienceFilter.value;
+        
+        categoryCards.forEach(card => {
+            const cardIndustry = card.getAttribute('data-industry');
+            // You would add data-experience attribute if implementing experience filtering
+            
+            const industryMatch = industryValue === 'all' || cardIndustry === industryValue;
+            // const experienceMatch = experienceValue === 'all' || cardExperience === experienceValue;
+            
+            if (industryMatch /* && experienceMatch */) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    industryFilter.addEventListener('change', filterCategories);
+    experienceFilter.addEventListener('change', filterCategories);
+
+    // Initialize any carousels or other interactive elements
+    // For example, you might initialize a trending careers carousel here
+    
+    // Search functionality would be implemented here
+    const searchBox = document.querySelector('.search-box input');
+    const searchButton = document.querySelector('.search-box button');
+    
+    searchButton.addEventListener('click', function() {
+        performSearch(searchBox.value);
+    });
+    
+    searchBox.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch(searchBox.value);
+        }
+    });
+    
+    function performSearch(query) {
+        // Implement search functionality
+        console.log('Searching for:', query);
+        // This would typically filter categories or redirect to a search results page
+    }
+});</script>
+</body>
+</html>
