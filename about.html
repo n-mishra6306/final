@@ -5,63 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - InterCareer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .mobile-menu {
-            display: none;
-        }
-        .mobile-menu.active {
-            display: block;
-        }
-    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="flex-shrink-0 flex items-center">
-                        <i class="fas fa-briefcase text-blue-500 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold text-gray-800">Inter<span class="text-blue-500">Career</span></span>
-                    </a>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>InterCareer/h1>
                 </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="index.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="internships.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Internships</a>
-                    <a href="privacy.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Jobs</a>
-                    <a href="about.html" class="text-blue-500 border-b-2 border-blue-500 px-3 py-2 text-sm font-medium">About Us</a>
-                    <a href="contact.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Contact</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="-mr-2 flex items-center md:hidden">
-                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                        <span class="sr-only">Open main menu</span>
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="internships.html">Internships</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="text-gray-500 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="internships.html" class="text-gray-500 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Internships</a>
-                <a href="about.html" class="text-blue-500 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
-                <a href="contact.html" class="text-gray-500 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-            </div>
-        </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <div class="relative bg-white overflow-hidden">
@@ -77,7 +49,7 @@
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="internships.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
+                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
                                     Browse Opportunities
                                 </a>
                             </div>
@@ -286,41 +258,70 @@
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
             <div class="border-t border-gray-700 pt-8">
                 <p class="text-base text-gray-400 text-center">
-                    &copy; 2023 InterCareer. All rights reserved.
+                    &copy; 2025 InterCareer. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            
-            // Change icon based on menu state
-            const icon = mobileMenuButton.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+      // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
         });
-        
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenuButton.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Filter functionality
+        document.getElementById('apply-filters').addEventListener('click', function() {
+            const category = document.getElementById('category').value;
+            const location = document.getElementById('location').value;
+            const cards = document.querySelectorAll('.internship-card');
+            
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardLocation = card.getAttribute('data-location');
+                
+                const categoryMatch = category === 'all' || cardCategory === category;
+                const locationMatch = location === 'all' || cardLocation === location;
+                
+                if (categoryMatch && locationMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
+
+        // Sort by date (most recent first)
+        function sortInternshipsByDate() {
+            const container = document.querySelector('.internship-grid');
+            const cards = Array.from(document.querySelectorAll('.internship-card'));
+            
+            cards.sort((a, b) => {
+                const dateA = a.querySelector('.details span:nth-child(2)').textContent;
+                const dateB = b.querySelector('.details span:nth-child(2)').textContent;
+                
+                // Simple sorting based on text (in a real app, you'd parse dates properly)
+                if (dateA.includes('Today')) return -1;
+                if (dateB.includes('Today')) return 1;
+                if (dateA.includes('day ago') && dateB.includes('days ago')) {
+                    const numA = parseInt(dateA);
+                    const numB = parseInt(dateB);
+                    return numA - numB;
+                }
+                if (dateA.includes('week ago')) return 1;
+                if (dateB.includes('week ago')) return -1;
+                return 0;
+            });
+            
+            // Re-append sorted cards
+            cards.forEach(card => container.appendChild(card));
+        }
+        
+        // Sort on page load
+        window.addEventListener('load', sortInternshipsByDate);
     </script>
 </body>
 </html>
