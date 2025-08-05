@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercareer - Free Study Materials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pdf-preview {
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+        .pdf-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .category-chip {
+            transition: all 0.3s ease;
+        }
+        .category-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .pdf-card {
+            transition: all 0.3s ease;
+        }
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <button id="backButton" class="bg-indigo-600 hover:bg-indigo-800 text-white px-4 py-2 rounded-lg transition duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+                <h1 class="text-2xl font-bold">Intercareer Free Study Materials</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="adminButton" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300 hidden">
+                    <i class="fas fa-lock mr-2"></i> Admin
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- PDF Listing Page (Default View) -->
+        <div id="listingPage">
+            <!-- Search and Filter Section -->
+            <div class="mb-8 bg-white p-6 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                    <div class="w-full md:w-1/2">
+                        <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-1">Search Materials</label>
+                        <div class="relative">
+                            <input type="text" id="searchInput" placeholder="Search by title, subject or keyword..."
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <button id="searchButton" class="absolute right-2 top-2 text-gray-500 hover:text-indigo-700">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <label for="subjectFilter" class="block text-sm font-medium text-gray-700 mb-1">Filter by</label>
+                        <div class="flex space-x-2">
+                            <select id="subjectFilter" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">All Subjects</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Medical">Medical</option>
+                            </select>
+                            <select id="categoryFilter" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">All Categories</option>
+                                <option value="Interview Prep">Interview Prep</option>
+                                <option value="Aptitude">Aptitude</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Exam Notes">Exam Notes</option>
+                                <option value="Research Papers">Research Papers</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Categories Chips -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button class="category-chip bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-200">
+                        All Categories
+                    </button>
+                    <button class="category-chip bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-200">
+                        <i class="fas fa-laptop-code mr-1"></i> CS
+                    </button>
+                    <button class="category-chip bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-green-200">
+                        <i class="fas fa-chart-line mr-1"></i> Commerce
+                    </button>
+                    <button class="category-chip bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-purple-200">
+                        <i class="fas fa-paint-brush mr-1"></i> Arts
+                    </button>
+                    <button class="category-chip bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-yellow-200">
+                        <i class="fas fa-bolt mr-1"></i> Engineering
+                    </button>
+                    <button class="category-chip bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-red-200">
+                        <i class="fas fa-heartbeat mr-1"></i> Medical
+                    </button>
+                </div>
+                                
+                <!-- Bundle Offers -->
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800">Popular Collections</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 flex flex-col">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-blue-800">CS Interview Collection</h4>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">5 Guides</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Essential guides for tech interviews</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-lg font-bold text-blue-700">FREE</span>
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                                    View Collection
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-lg p-4 flex flex-col">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-green-800">Aptitude Mastery</h4>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">3 Guides</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Complete quantitative & logical reasoning</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-lg font-bold text-green-700">FREE</span>
+                                <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm">
+                                    View Collection
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4 flex flex-col">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-purple-800">Design Portfolio Guide</h4>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">4 Templates</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Templates + case studies for designers</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-lg font-bold text-purple-700">FREE</span>
+                                <button class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm">
+                                    View Collection
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- PDF Grid -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Study Materials</h2>
+                    <div class="text-sm text-gray-600">
+                        Showing <span id="resultCount">12</span> results
+                    </div>
+                </div>
+                                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="pdfGrid">
+                    <!-- PDF Cards will be dynamically inserted here -->
+                </div>
+                                
+                <div class="mt-8 flex justify-center">
+                    <button class="bg-white border border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 transition duration-300">
+                        Load More
+                    </button>
+                </div>
+            </div>
+        </div>
+                
+        <!-- PDF Detail Page (Hidden by default) -->
+        <div id="detailPage" class="hidden bg-white rounded-lg shadow-md p-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3">
+                    <h2 id="pdfTitle" class="text-2xl font-bold text-gray-800 mb-2">Data Structures & Algorithms Interview Guide</h2>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">Computer Science</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Interview Prep</span>
+                        <span class="text-gray-500 text-sm"><i class="fas fa-download mr-1"></i> 1,245 downloads</span>
+                    </div>
+                                        
+                    <div class="pdf-preview bg-gray-100 rounded-lg mb-6">
+                        <iframe id="pdfPreviewFrame" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf" frameborder="0"></iframe>
+                    </div>
+                                        
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Description</h3>
+                        <p id="pdfDescription" class="text-gray-700">
+                            This comprehensive guide covers all essential data structures and algorithms with detailed explanations, code examples, and interview questions. Perfect for technical interview preparation at top tech companies. Includes:
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                <li>Time and space complexity analysis</li>
+                                <li>150+ practice problems with solutions</li>
+                                <li>System design principles</li>
+                                <li>Behavioral interview tips</li>
+                                <li>Real interview questions from FAANG companies</li>
+                            </ul>
+                        </p>
+                    </div>
+                                        
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">What's Included</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                                <span class="text-gray-700">PDF Document (78 pages)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-code text-blue-500 mr-2"></i>
+                                <span class="text-gray-700">Code Examples</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-question-circle text-green-500 mr-2"></i>
+                                <span class="text-gray-700">150+ Problems</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                <span class="text-gray-700">Interview Tips</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="lg:w-1/3">
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 sticky top-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-3xl font-bold text-green-600">FREE</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Bestseller</span>
+                        </div>
+                                                
+                        <div class="space-y-4 mb-6">
+                            <button id="downloadButton" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition duration-300">
+                                <i class="fas fa-download mr-2"></i> Download Now
+                            </button>
+                            <button class="w-full bg-white border border-indigo-600 text-indigo-600 py-3 rounded-lg font-medium hover:bg-indigo-50 transition duration-300">
+                                <i class="fas fa-bookmark mr-2"></i> Save for Later
+                            </button>
+                        </div>
+                                                
+                        <div class="border-t border-gray-200 pt-4">
+                            <h4 class="font-medium text-gray-800 mb-2">Instant Access</h4>
+                            <p class="text-sm text-gray-600 mb-4">Get immediate access to download this resource.</p>
+                            
+                            <h4 class="font-medium text-gray-800 mb-2">Share with Friends</h4>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook-f text-xl"></i></a>
+                                <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter text-xl"></i></a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fab fa-whatsapp text-xl"></i></a>
+                                <a href="#" class="text-gray-700 hover:text-gray-900"><i class="fas fa-envelope text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+        <!-- Download Success Page (Hidden by default) -->
+        <div id="successPage" class="hidden bg-white rounded-lg shadow-md p-8 text-center">
+            <div class="max-w-md mx-auto">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Download Started!</h2>
+                <p class="text-gray-600 mb-6">Your study material is now downloading. Check your downloads folder.</p>
+                                
+                <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-700">Resource:</span>
+                        <span class="font-medium">Data Structures & Algorithms Interview Guide</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-700">File Size:</span>
+                        <span class="font-medium">4.2 MB</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-700">Format:</span>
+                        <span class="font-medium">PDF</span>
+                    </div>
+                </div>
+                                
+                <button id="backToListButton" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium mb-4 transition duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Materials
+                </button>
+                                
+                <p class="text-sm text-gray-500">Having trouble with the download? <a href="mailto:support@intercareer.com" class="text-indigo-600 hover:underline">Contact support</a></p>
+            </div>
+        </div>
+    </main>
+        
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Intercareer</h3>
+                    <p class="text-gray-400">Empowering your career journey with free quality study materials and resources.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Browse Materials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Popular Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Computer Science</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Arts & Humanities</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Engineering</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:support@intercareer.com" class="text-gray-400 hover:text-white transition">support@intercareer.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-globe mr-2 text-gray-400"></i>
+                            <a href="#" class="text-gray-400 hover:text-white transition">www.intercareer.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Bangalore, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Intercareer. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample PDF data (all items marked as free)
+        const pdfData = [
+            {
+                id: 1,
+                title: "Data Structures & Algorithms Interview Guide",
+                description: "Comprehensive guide covering all essential data structures and algorithms with detailed explanations and interview questions.",
+                subject: "CS",
+                category: "Interview Prep",
+                price: 0,
+                pages: 78,
+                downloads: 1245,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=DS+Algo"
+            },
+            {
+                id: 2,
+                title: "JavaScript Advanced Concepts",
+                description: "Master advanced JavaScript concepts like closures, prototypes, async/await, and design patterns.",
+                subject: "CS",
+                category: "Programming",
+                price: 0,
+                pages: 65,
+                downloads: 892,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=JavaScript"
+            },
+            {
+                id: 3,
+                title: "Financial Accounting Basics",
+                description: "Fundamentals of financial accounting for commerce students and professionals.",
+                subject: "Commerce",
+                category: "Exam Notes",
+                price: 0,
+                pages: 45,
+                downloads: 567,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Accounting"
+            },
+            {
+                id: 4,
+                title: "Art History Timeline",
+                description: "Complete timeline of art history from prehistoric to contemporary art movements.",
+                subject: "Arts",
+                category: "Research Papers",
+                price: 0,
+                pages: 32,
+                downloads: 1203,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Art+History"
+            },
+            {
+                id: 5,
+                title: "Quantitative Aptitude Shortcuts",
+                description: "Time-saving shortcuts and tricks for quantitative aptitude tests and competitive exams.",
+                subject: "Commerce",
+                category: "Aptitude",
+                price: 0,
+                pages: 58,
+                downloads: 2345,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/EC4899/FFFFFF?text=Aptitude"
+            },
+            {
+                id: 6,
+                title: "System Design Primer",
+                description: "Essential system design concepts for technical interviews at top tech companies.",
+                subject: "CS",
+                category: "Interview Prep",
+                price: 0,
+                pages: 92,
+                downloads: 756,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/6366F1/FFFFFF?text=System+Design"
+            },
+            {
+                id: 7,
+                title: "Python for Data Science",
+                description: "Complete Python guide focused on data science applications with NumPy, Pandas, and Matplotlib.",
+                subject: "CS",
+                category: "Programming",
+                price: 0,
+                pages: 72,
+                downloads: 1890,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/14B8A6/FFFFFF?text=Python+DS"
+            },
+            {
+                id: 8,
+                title: "Microeconomics Principles",
+                description: "Fundamental principles of microeconomics with real-world applications and examples.",
+                subject: "Commerce",
+                category: "Exam Notes",
+                price: 0,
+                pages: 50,
+                downloads: 432,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/F97316/FFFFFF?text=Microeconomics"
+            },
+            {
+                id: 9,
+                title: "Creative Writing Techniques",
+                description: "Proven techniques and exercises to improve your creative writing skills.",
+                subject: "Arts",
+                category: "Research Papers",
+                price: 0,
+                pages: 40,
+                downloads: 987,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/A855F7/FFFFFF?text=Writing"
+            },
+            {
+                id: 10,
+                title: "Logical Reasoning Workbook",
+                description: "Practice workbook with 200+ logical reasoning problems and detailed solutions.",
+                subject: "Commerce",
+                category: "Aptitude",
+                price: 0,
+                pages: 68,
+                downloads: 1567,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/06B6D4/FFFFFF?text=Reasoning"
+            },
+            {
+                id: 11,
+                title: "Machine Learning Basics",
+                description: "Introduction to machine learning concepts, algorithms, and practical implementations.",
+                subject: "CS",
+                category: "Programming",
+                price: 0,
+                pages: 85,
+                downloads: 1123,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=ML+Basics"
+            },
+            {
+                id: 12,
+                title: "Digital Marketing Strategies",
+                description: "Modern digital marketing strategies for businesses and marketing professionals.",
+                subject: "Commerce",
+                category: "Research Papers",
+                price: 0,
+                pages: 62,
+                downloads: 789,
+                isFree: true,
+                thumbnail: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Marketing"
+            }
+        ];
+
+        // DOM Elements
+        const listingPage = document.getElementById('listingPage');
+        const detailPage = document.getElementById('detailPage');
+        const successPage = document.getElementById('successPage');
+        const pdfGrid = document.getElementById('pdfGrid');
+        const backButton = document.getElementById('backButton');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const subjectFilter = document.getElementById('subjectFilter');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const resultCount = document.getElementById('resultCount');
+        const downloadButton = document.getElementById('downloadButton');
+        const backToListButton = document.getElementById('backToListButton');
+
+        // State
+        let currentPage = 'listing';
+        let currentPdf = null;
+
+        // Initialize the page
+        function init() {
+            renderPdfCards(pdfData);
+            setupEventListeners();
+        }
+
+        // Render PDF cards
+        function renderPdfCards(pdfs) {
+            pdfGrid.innerHTML = '';
+            resultCount.textContent = pdfs.length;
+            
+            pdfs.forEach(pdf => {
+                const card = document.createElement('div');
+                card.className = 'pdf-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300';
+                card.innerHTML = `
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        <img src="${pdf.thumbnail}" alt="${pdf.title}" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800">${pdf.title}</h3>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">
+                                FREE
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">${pdf.description}</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">${pdf.subject}</span>
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">${pdf.category}</span>
+                            </div>
+                            <button class="view-details-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm" data-id="${pdf.id}">
+                                <i class="fas fa-eye mr-1"></i> View
+                            </button>
+                        </div>
+                    </div>
+                `;
+                pdfGrid.appendChild(card);
+            });
+
+            // Add event listeners to view buttons
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const pdfId = parseInt(e.target.getAttribute('data-id'));
+                    showPdfDetails(pdfId);
+                });
+            });
+        }
+
+        // Show PDF details
+        function showPdfDetails(pdfId) {
+            const pdf = pdfData.find(p => p.id === pdfId);
+            if (!pdf) return;
+            
+            currentPdf = pdf;
+
+            // Update the detail page with PDF data
+            document.getElementById('pdfTitle').textContent = pdf.title;
+            document.getElementById('pdfDescription').innerHTML = pdf.description;
+
+            // Update PDF preview (using PDF.js)
+            const previewFrame = document.getElementById('pdfPreviewFrame');
+            previewFrame.src = `https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf`;
+
+            // Show detail page
+            listingPage.classList.add('hidden');
+            detailPage.classList.remove('hidden');
+            successPage.classList.add('hidden');
+            currentPage = 'detail';
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Back button
+            backButton.addEventListener('click', () => {
+                if (currentPage === 'detail') {
+                    listingPage.classList.remove('hidden');
+                    detailPage.classList.add('hidden');
+                    currentPage = 'listing';
+                } else if (currentPage === 'success') {
+                    listingPage.classList.remove('hidden');
+                    successPage.classList.add('hidden');
+                    currentPage = 'listing';
+                }
+            });
+
+            // Back to list button
+            backToListButton.addEventListener('click', () => {
+                listingPage.classList.remove('hidden');
+                successPage.classList.add('hidden');
+                currentPage = 'listing';
+            });
+
+            // Download button
+            downloadButton.addEventListener('click', () => {
+                // Simulate download
+                const link = document.createElement('a');
+                link.href = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+                link.download = `${currentPdf.title}.pdf`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Show success page
+                detailPage.classList.add('hidden');
+                successPage.classList.remove('hidden');
+                currentPage = 'success';
+
+                // Show downloaded notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg';
+                notification.innerHTML = `<i class="fas fa-download mr-2"></i> Download started`;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+
+            // Search functionality
+            searchButton.addEventListener('click', filterPdfs);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') filterPdfs();
+            });
+
+            // Filter functionality
+            subjectFilter.addEventListener('change', filterPdfs);
+            categoryFilter.addEventListener('change', filterPdfs);
+        }
+
+        // Filter PDFs based on search and filters
+        function filterPdfs() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const subject = subjectFilter.value;
+            const category = categoryFilter.value;
+            
+            const filtered = pdfData.filter(pdf => {
+                // Search term
+                const matchesSearch = pdf.title.toLowerCase().includes(searchTerm) ||
+                                      pdf.description.toLowerCase().includes(searchTerm) ||
+                                      pdf.subject.toLowerCase().includes(searchTerm) ||
+                                      pdf.category.toLowerCase().includes(searchTerm);
+                
+                // Subject filter
+                const matchesSubject = subject === '' || pdf.subject === subject;
+                
+                // Category filter
+                const matchesCategory = category === '' || pdf.category === category;
+                
+                return matchesSearch && matchesSubject && matchesCategory;
+            });
+            
+            renderPdfCards(filtered);
+        }
+
+        // Initialize the page
+        init();
+    </script>
+</body>
+</html>
