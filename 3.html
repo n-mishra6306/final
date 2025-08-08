@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Internship | DataCircles Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+        
+        .back-button i {
+            color: #3b82f6;
+            font-size: 18px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #374151;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding: 1.5rem 0;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <!-- Persistent Back Button -->
+    <a href="../internships.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 md:flex md:space-x-8 mt-10">
+        <!-- Job Details -->
+        <div class="md:w-2/3">
+            <!-- Job Header -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div class="flex items-start space-x-4">
+                        <img src="https://via.placeholder.com/60" alt="DataCircles Technology" class="w-16 h-16 rounded-lg object-cover">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-800">Graphic Design Intern (Part-time)</h1>
+                            <p class="text-gray-600">DataCircles Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Location</p>
+                            <p class="font-medium">Mumbai, Thane, Navi Mumbai (On-site)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-briefcase text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Duration</p>
+                            <p class="font-medium">3 months</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-rupee-sign text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Stipend</p>
+                            <p class="font-medium">₹10,000 – ₹20,000/month</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Job Type</p>
+                            <p class="font-medium">Part-time</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar-alt text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Start Date</p>
+                            <p class="font-medium">Immediately</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-hourglass-end text-gray-400 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Deadline</p>
+                            <p class="font-medium">Sep 7, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Description -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Responsibilities</h2>
+                <div class="prose max-w-none text-gray-700">
+                    <p>This role offers genuine brand-building exposure, not just design tasks. You'll be working directly with the founder to shape the visual identity of our startup.</p>
+                                                                          
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Design content assets for platforms like Instagram, LinkedIn, Facebook, Threads</li>
+                        <li>Create visuals using Canva/Figma—reels, carousels, static posts</li>
+                        <li>Write engaging captions and assist with post scheduling</li>
+                        <li>Co-develop visual storytelling under guidance from the founder</li>
+                        <li>Work with developers on UI screenshots, product visuals, and designs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skills Required -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Required Skills</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Canva/Figma/Adobe tools</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Social media design</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Visual communication</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Creative branding</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Social media trends</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">CRM tools knowledge</span>
+                </div>
+            </div>
+
+            <!-- Eligibility -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Eligibility</h2>
+                <div class="prose max-w-none text-gray-700">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>College students or recent graduates seeking startup experience</li>
+                        <li>Available to work on-site in Thane/Mumbai/Navi Mumbai</li>
+                        <li>Able to commit 3–4 hours daily across a 3-month period</li>
+                        <li>Passionate, proactive, and comfortable with feedback</li>
+                        <li>Women starting or restarting their careers are especially encouraged to apply</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Perks & Benefits -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Perks & Benefits</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-certificate text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">Certificate & LOR</h3>
+                            <p class="text-sm text-gray-600">Upon successful completion</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-user-tie text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">Founder Mentorship</h3>
+                            <p class="text-sm text-gray-600">Direct guidance from the founder</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-briefcase text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">PPO Opportunity</h3>
+                            <p class="text-sm text-gray-600">Up to ₹3 LPA for top performers</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-chart-line text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">Growth Potential</h3>
+                            <p class="text-sm text-gray-600">Promising visibility in launch phase</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-clock text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">Flexible Hours</h3>
+                            <p class="text-sm text-gray-600">Informal startup culture</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-utensils text-blue-500 mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-medium">Free Snacks</h3>
+                            <p class="text-sm text-gray-600">Beverages and snacks provided</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Company -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">About DataCircles Technology</h2>
+                <div class="prose max-w-none text-gray-700">
+                    <p>A startup focused on simplifying business operations via an all-in-one CRM & invoicing platform tailored for SMEs in India. Our platform includes dashboards, task management, vendor tracking, reports, and invoicing modules.</p>
+                    <div class="mt-4 flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-gray-400 mr-2"></i>
+                            <a href="#" class="text-blue-600 hover:underline">www.datacircles.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-building text-gray-400 mr-2"></i>
+                            <span>Startup (1-10 employees)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="md:w-1/3 mt-6 md:mt-0">
+            <div class="bg-white rounded-lg shadow-md p-6 sticky top-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Internship Summary</h2>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-sm text-gray-500">Posted</p>
+                        <p class="font-medium">Few hours ago</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Job Type</p>
+                        <p class="font-medium">Part-time</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Duration</p>
+                        <p class="font-medium">3 months</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Location</p>
+                        <p class="font-medium">On-site (Mumbai area)</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Stipend</p>
+                        <p class="font-medium">₹10,000 – ₹20,000/month</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Start Date</p>
+                        <p class="font-medium">Immediately</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Deadline</p>
+                        <p class="font-medium">Sep 7, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">PPO Potential</p>
+                        <p class="font-medium">Up to ₹3 LPA</p>
+                    </div>
+                </div>
+
+                <button id="applyBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300">
+                   <a href="https://www.datacircles.com/careers"> Apply Now</a>
+                </button>
+
+                <a href="internships.html" class="block mt-4 text-center text-blue-600 hover:underline">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Listings
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sticky Apply Button (Mobile) -->
+    <div id="stickyApply" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg py-3 px-4 flex justify-between items-center md:hidden transform translate-y-full transition-transform duration-300">
+        <div>
+            <p class="font-medium">Graphic Design Intern</p>
+            <p class="text-sm text-gray-600">₹10K–20K/month</p>
+        </div>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
+           <a href="https://internshala.com/internships-for-women/ui-ux-internship-in-navi-mumbai/">Apply</a>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3 class="text-lg font-semibold">Daily Internships</h3>
+                    <p>Helping students and freshers find the best internship opportunities since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="www.linkedin.com/in/inter-career-6366b2273"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/nkhlmishra?igsh=MTB5cGVzeTdoMWt2cw=="><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="internships.html">Internships</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Intercareer. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const applyBtn = document.getElementById('applyBtn');
+        const closeModal = document.getElementById('closeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const applicationModal = document.getElementById('applicationModal');
+
+        applyBtn.addEventListener('click', function() {
+            applicationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', function() {
+            applicationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            applicationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Sticky apply button for mobile
+        const stickyApply = document.getElementById('stickyApply');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                stickyApply.classList.remove('translate-y-full');
+                stickyApply.classList.add('translate-y-0');
+            } else {
+                stickyApply.classList.remove('translate-y-0');
+                stickyApply.classList.add('translate-y-full');
+            }
+        });
+
+        // Make sticky apply button work
+        const mobileApplyBtn = stickyApply.querySelector('button');
+        mobileApplyBtn.addEventListener('click', function() {
+            applicationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
