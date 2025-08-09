@@ -468,3 +468,21 @@ footer {
         padding: 0.5rem 1rem;
     }
 }
+
+/* Team Member Social Icons (separate from footer) @about.html */
+.team-social-icons {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.team-social-icons a {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.team-social-icons a:hover {
+    color: #0a66c2; /* LinkedIn blue as example */
+}
