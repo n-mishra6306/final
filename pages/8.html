@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details | InterCareer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        nav {
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .back-link {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            flex: 1;
+            padding: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .job-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        .job-meta {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .job-description {
+            margin-bottom: 1.5rem;
+            color: #374151;
+        }
+        .ad-container {
+            background: #f3f4f6;
+            border: 1px dashed #d1d5db;
+            padding: 1rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .apply-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .apply-btn:hover {
+            background: #1d4ed8;
+        }
+        footer {
+            background: #f3f4f6;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        @media (min-width: 640px) {
+            .apply-btn {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo">InterCareer</div>
+        <a href="../internships.html" class="back-link">← Back to Jobs</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="job-card">
+            <h1 class="job-title">Web Development Intern</h1>
+            <div class="job-meta">
+                <span>Work From Home (Remote)</span> • <span>Full-time</span>
+            </div>
+            
+            <div class="job-description">
+              <p>The Student Researcher Program fosters academic collaboration by placing students on research projects aligned with Google's scientific and technological goals. You may be considered for projects with Google Research teams—including DeepMind, Google Cloud, among others. These are exploratory, innovation-driven projects that tackle real-world, large-scale problems.</p>
+                          <h3>Requirements:</h3>
+                <ul>
+                 <li>Develop and Maintain websites, web applications, and other web-based projects</li>
+                        <li>Design and Implement user interfaces and navigation structures</li>
+                        <li>Develop and Maintain databases and content management systems</li>
+                        <li>Troubleshoot and Debug web applications</li>
+                        <li>Optimize web applications for maximum speed and scalability</li>
+                        <li>Ensure cross-browser compatibility</li>
+                        <li>Collaborate with other developers and designers to create innovative solutions</li>
+                </ul>
+            </div>
+            
+            <!-- AdSense Container 
+            <div class="ad-container">
+                <p class="text-gray-500 text-sm">Advertisement</p>
+               Replace this div with your Google AdSense code 
+                <div style="min-height: 90px; background-color: #eee; display: flex; align-items: center; justify-content: center;">
+                    Google AdSense Banner
+                </div>
+            </div>-->
+            
+            <!-- Apply Button -->
+            <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md w-full md:w-auto">
+                <a href="https://unstop.com/competitions/1529547/register"> Apply Now</a>
+               
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-4 mt-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>© 2025 InterCareer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
